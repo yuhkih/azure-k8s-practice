@@ -59,6 +59,6 @@ az aks get-credentials --admin --resource-group $AKS_RES_GROUP --name $AKS_CLUST
 echo "check if cluster is created successfully"
 kubectl cluster-info
 # kubectl get node
-echo "cluster node if"
+echo "cluster node check"
 kubectl get node -o=wide
 # kubectl describe node aks-nodepool1-36860460-0
