@@ -6,12 +6,15 @@ az login
 
 # -- 環境変数
 # ACR = Azure Container Registry の略
-# ここの名前は自分用に変更する
+# ここの名前は自分用に変更して下さい (ACR_RES_GROUP / AKS_CLUSTER_NAME / SP_NAME)
 export ACR_RES_GROUP=yuhkiACRRegistry
 export ACR_NAME=$ACR_RES_GROUP
 
 export AKS_CLUSTER_NAME=AKSCluster
 export AKS_RES_GROUP=$AKS_CLUSTER_NAME
+
+export SP_NAME=sample-acr-service-principal
+
 
 echo "The folloing values will be used for k8s creation"
 echo  "ACR_RES_GROUP = " $ACR_RES_GROUP
@@ -38,7 +41,6 @@ az acr repository show-tags -n $ACR_NAME --repository photo-view
 # -- ACR と AKS の連携のためのID / Password の作成
 # AKS は、ACR からコンテナを取得する
 ACR_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
-SP_NAME=sample-acr-service-principal
 SP_PASSWD=$(az ad sp create-for-rbac --name $SP_NAME --role Reader --scopes $ACR_ID --query password --output tsv)
 APP_ID=$(az ad sp show --id http://$SP_NAME --query appId --output tsv)
 
