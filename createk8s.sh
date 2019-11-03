@@ -54,7 +54,7 @@ az group create --resource-group $AKS_RES_GROUP --location japaneast
 
 # -- クラスタの作成
 echo "Creating K8S cluster"
-az aks create --name $AKS_CLUSTER_NAME --resource-group $AKS_RES_GROUP --node-count 3 --kubernetes-version 1.12.10 --node-vm-size Standard_DS1_v2 --generate-ssh-keys --service-principal $APP_ID --client-secret $SP_PASSWD
+az aks create --name $AKS_CLUSTER_NAME --resource-group $AKS_RES_GROUP --node-count 3 --kubernetes-version 1.12.8 --node-vm-size Standard_DS1_v2 --generate-ssh-keys --service-principal $APP_ID --client-secret $SP_PASSWD
   
 # -クレデンシャルの取得
 echo "Getting credentials" 
