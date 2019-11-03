@@ -49,12 +49,15 @@ echo "APP_ID = " $APP_ID
 echo "SP_PASSWD = " $SP_PASSWD
 
 #  - リソースグループの作成
+echo "Creating K8S cluster resource group"
 az group create --resource-group $AKS_RES_GROUP --location japaneast
 
 # -- クラスタの作成
-az aks create --name $AKS_CLUSTER_NAME --resource-group $AKS_RES_GROUP --node-count 3 --kubernetes-version 1.11.10 --node-vm-size Standard_DS1_v2 --generate-ssh-keys --service-principal $APP_ID --client-secret $SP_PASSWD
+echo "Creating K8S cluster"
+az aks create --name $AKS_CLUSTER_NAME --resource-group $AKS_RES_GROUP --node-count 3 --kubernetes-version 1.12.10 --node-vm-size Standard_DS1_v2 --generate-ssh-keys --service-principal $APP_ID --client-secret $SP_PASSWD
   
 # -クレデンシャルの取得
+echo "Getting credentials" 
 az aks get-credentials --admin --resource-group $AKS_RES_GROUP --name $AKS_CLUSTER_NAME
 
 # --確認コマンド
