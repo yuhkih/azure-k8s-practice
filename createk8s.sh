@@ -91,10 +91,12 @@ echo "[" $shellname "] Sleep 10 sec to make sure az command completion"; sleep 1
 echo "[" $shellname "] End creaating K8S Cluster: " `date '+%y/%m/%d %H:%M:%S'`
   
 # -- クレデンシャルの取得
-echo "[" $shellname "] Getting credentials" 
+echo "[" $shellname "] Getting credentials. This takes time." 
+echo "[" $shellname "] Start getting credentials: " `date '+%y/%m/%d %H:%M:%S'`
 result=`az aks get-credentials --admin --resource-group $AKS_RES_GROUP --name $AKS_CLUSTER_NAME`
 ret=$?
 echo "[" $shellname "] Getting credentials result =" $result "," "return code=" $ret
+echo "[" $shellname "] End getting credentials: " `date '+%y/%m/%d %H:%M:%S'`
 echo "[" $shellname "] Sleep 10 sec for az command completion"; sleep 10
 
 # --確認コマンド
