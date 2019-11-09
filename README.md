@@ -8,6 +8,6 @@
 createk8s.sh  # 環境の作成.  
 deletek8s.sh  # 環境の削除.  
 
-####  k8s cli を Linux にインストールするシェル
+####  kubectl cli を Linux にインストールするシェル
 install_k8scli.sh  
 
