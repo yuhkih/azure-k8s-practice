@@ -98,9 +98,9 @@ shell_log "Sleep 10 sec to make sure az command completion"; sleep 10
 
 # -- K8S クラスタの作成
 # DS1 v2 (1vCPU/3.5GiB Mem/7GiB Disk) 6 yen /hour
-# command="az aks create --name $AKS_CLUSTER_NAME --resource-group $AKS_RES_GROUP --node-count 3 --kubernetes-version 1.12.8 --node-vm-size Standard_DS1_v2 --generate-ssh-keys --service-principal $APP_ID --client-secret $SP_PASSWD"
-# B1S (1vCPU/1GiB Mem/4GiB Disk) Linux is 750 hours free.  or 1.1 yen /hour
-command="az aks create --name $AKS_CLUSTER_NAME --resource-group $AKS_RES_GROUP --node-count 3 --kubernetes-version 1.12.8 --node-vm-size Standard_B1s --generate-ssh-keys --service-principal $APP_ID --client-secret $SP_PASSWD"
+command="az aks create --name $AKS_CLUSTER_NAME --resource-group $AKS_RES_GROUP --node-count 2 --kubernetes-version 1.12.8 --node-vm-size Standard_DS1_v2 --generate-ssh-keys --service-principal $APP_ID --client-secret $SP_PASSWD"
+# B1S (1vCPU/1GiB Mem/4GiB Disk) Linux is 750 hours free.  or 1.1 yen /hour (This will be an error. It is not allowed to use B1S for k8s)
+# command="az aks create --name $AKS_CLUSTER_NAME --resource-group $AKS_RES_GROUP --node-count 3 --kubernetes-version 1.12.8 --node-vm-size Standard_B1s --generate-ssh-keys --service-principal $APP_ID --client-secret $SP_PASSWD"
 
 shell_log "K8Sのクラスタを作成します。この処理は少し時間がかかります。 [" "$command" "]"
 result=eval $command
