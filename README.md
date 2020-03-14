@@ -5,8 +5,8 @@
 #### 環境の予算を節約するためのツール
 ####  (コンテナをレジストリに登録し、K8S クラスタを動かすと 1200円/Day くらいかかる)
 #### Registoryの名前やクラスタ名は、中で変数で定義しているので自分用に編集する事
-createk8s.sh  # K8S環境の作成.  
-deletek8s.sh  # K8S環境の削除.  
+createk8s.sh  # K8S 環境の作成.  
+deletek8s.sh  # K8S 環境の削除.  
 
 ####  kubectl cli を Linux にインストールするシェル
 install_k8scli.sh  
